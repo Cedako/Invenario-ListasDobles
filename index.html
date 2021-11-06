@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario</title>
+</head>
+
+<body>
+    <h1>Inventario</h1>
+    <h2>Para añadir un producto, rellena la información del mismo</h2>
+
+    <div class="form">
+        <label>Código:</label>
+        <input id="id" type="number" size=35>
+        <label>Nombre:</label>
+        <input id="name" type="text" size=35>
+        <label>Cantidad:</label>
+        <input id="quantity" type="number" size=35>
+        <label>Costo:</label>
+        <input id="cost" type="number" size=35>
+        <input id="btnAdd" type="button" value="Agregar">
+    </div>
+
+    <div class="invInteractions">
+        <div class="addProductAt">
+            <h4>Añadir producto en</h4>
+            <label>Posición:</label>
+            <input id="prdPosition" type="number" size=35>
+            <input id="addPrdPos" type="button" value="Añadir">
+        </div>
+        <div class="delProduct">
+            <h4>Eliminar producto por código</h4>
+            <label>Código:</label>
+            <input id="delId" type="number" size="35">
+            <input id="btnDel" type="button" value="Eliminar">
+        </div>
+        <div class="srchProduct">
+            <h4>Buscar producto por código</h4>
+            <label>Código:</label>
+            <input id="srchId" type="number" size="35">
+            <input id="btnSrch" type="button" value="Buscar">
+        </div>
+        <div class="showAllProducts">
+            <h4>Mostrar todos los productos</h4>
+            <label>Orden normal</label>
+            <input id="showAll" type="button" value="Mostrar">
+            <label>Orden inverso</label>
+            <input id="showInverse" type="button" value="Mostrar">
+        </div>
+
+        <div class="listOfProducts">
+            <h2>Productos:</h2>
+            <div>
+                <table>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                        <th>Cantidad</th>
+                        <th>Costo</th>
+                        <th>Costo total</th>
+                    </tr>
+                </table>
+                <table id="table"></table>
+            </div>
+        </div>
+
+        
+    </div>
+
+    <script src="main.js" type="module"></script>
+</body>
+</html>
