@@ -15,11 +15,23 @@ export default class Inventario{
                 return true;
             } else {
                 let aux=this._inicio;
-                while(aux._siguiente!=null)
+                while(aux._siguiente!=null){
+                    if(aux._siguiente.getId() > aux.getId()){
+                        let aux2 = aux._siguiente
+                        aux._siguiente=product;
+                        aux._siguiente._siguiente = aux2
+                        aux._siguiente._anterior = aux;
+                        aux2._anterior = aux._siguiente
+                        console.log(this._inicio);
+                        return true;
+                    }
                     aux=aux._siguiente;
+                }
                 aux._siguiente=product;
+                aux._siguiente._anterior = aux;
                 console.log(this._inicio);
                 return true;
+                
             }
         } else {
             return false;
@@ -57,7 +69,7 @@ export default class Inventario{
 
             let col = row.insertCell(0);
 
-            col.innerHTML = aux._info
+            col.innerHTML = aux.getInfo()
             aux=aux._siguiente
         }
     }
@@ -69,7 +81,7 @@ export default class Inventario{
 
             let col = row.insertCell(0);
 
-            col.innerHTML = aux._info
+            col.innerHTML = aux.getInfo();
             aux=aux._siguiente
         }
     }
@@ -78,7 +90,7 @@ export default class Inventario{
         let tempo = this._inicio;
         while(tempo!==null){
             if(tempo._id == inId.value){
-                this._table.innerHTML=tempo._info
+                this._table.innerHTML=tempo.getInfo()
                 return tempo
             } else {
                 tempo = tempo._siguiente
@@ -96,16 +108,22 @@ export default class Inventario{
         if (inId.value==this._inicio._id){
             del = this._inicio
             this._inicio = this._inicio._siguiente
+            this._inicio._anterior = null
             del._siguiente = null
             return del;
         }
         let temp=this._inicio;
-        while(temp._siguiente != null ){
-        if (temp._siguiente._id==inId.value)
+        while(temp != null){
+        if (temp._id==inId.value)
         {
-            del=temp._siguiente;
-            temp._siguiente=temp._siguiente._siguiente;
+            del=temp;
+            temp._anterior._siguiente=del._siguiente;
+            if(temp._siguiente !== null){
+                temp._siguiente._anterior=temp._anterior;
+            }
             del._siguiente=null;
+            del._anterior=null;
+            console.log(this._inicio)
             return del;
         } else
             temp=temp._siguiente;

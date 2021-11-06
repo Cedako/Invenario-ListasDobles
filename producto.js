@@ -5,6 +5,7 @@ export default class Producto {
         this._quantity = Number(quantity);
         this._cost = Number(cost);
         this._siguiente = null;
+        this._anterior = null;
     }
     
     getId(){
