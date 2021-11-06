@@ -113,38 +113,4 @@ export default class Inventario{
         return del;
         }
     }
-    addProductPosition(product,inPos){
-        let prdCount = this._count()
-        let search = this._find(product)
-        if(search == null && prdCount<20 && prdCount>inPos.value){
-            let count = 1;
-            let newProduct = false;
-        if (inPos.value==1){
-            newProduct = this._inicio
-            this._inicio = product
-            product._siguiente = newProduct
-            return true;
-        }
-        let temp=this._inicio;
-        while(count !== inPos ){
-            console.log(count)
-        if ((count)+1 == inPos.value)
-        {
-            newProduct=temp._siguiente;
-            temp._siguiente=product;
-            product._siguiente = newProduct
-            return true;
-        }else if(!temp){
-            return false
-        } else {
-            count++
-            temp=temp._siguiente;
-        }
-        }
-        return newProduct;
-        }
-        else {
-            return false
-        }
-    }
 }

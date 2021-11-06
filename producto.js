@@ -5,7 +5,6 @@ export default class Producto {
         this._quantity = Number(quantity);
         this._cost = Number(cost);
         this._siguiente = null;
-        this._info = `${this._id}|${this._name}|${this._quantity}|${this._cost}|${this.getTotal()}`
     }
     
     getId(){
@@ -22,5 +21,8 @@ export default class Producto {
     }
     getTotal(){
         return this._quantity*this._cost;
+    }
+    getInfo(){
+        return `${this._id}|${this._name}|${this._quantity}|${this._cost}|${this.getTotal()}`
     }
 }
